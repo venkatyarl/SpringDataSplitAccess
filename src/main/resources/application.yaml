@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Database1
+    username: postgres
+    password: baseball
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always
+    platform: postgres
+    type: org.postgresql.jdbc3.Jdbc3PoolingDataSource
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
