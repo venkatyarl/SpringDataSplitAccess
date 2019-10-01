@@ -1,20 +1,30 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/Database1
-    username: postgres
-    password: baseball
-    driver-class-name: org.postgresql.Driver
-    initialization-mode: always
-    platform: postgres
-    type: org.postgresql.jdbc3.Jdbc3PoolingDataSource
+  master-db:
+    datasource:
+      url: jdbc:postgresql://localhost:5432/Database1
+      username: postgres
+      password: baseball
+      driver-class-name: org.postgresql.Driver
+      #initialization-mode: always
+      #platform: postgres
+      #type: org.postgresql.jdbc3.Jdbc3PoolDataSource
+  replica-db:
+    datasource:
+      url: jdbc:postgresql://localhost:5432/Database2
+      username: postgres
+      password: baseball
+      driver-class-name: org.postgresql.Driver
+      #initialization-mode: 
+      #platform: postgres
+      #type: org.postgresql.jdbc3.Jdbc3PoolDataSource
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
       ddl-auto: validate
-    generate-ddl: true
+    generate-ddl: false
     properties:
       hibernate:
         jdbc:
           lob:
             non_contextual_creation: true
+    
